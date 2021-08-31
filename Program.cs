@@ -22,13 +22,14 @@ void Main()
         else
         {
             Console.WriteLine("WRONG");
-            timesGuessed++;
-            Console.WriteLine("Guess again: ");
-            userGuess = Console.ReadLine();
+            Console.WriteLine($@"Guess again. You have made {timesGuessed} guesses.");
             if (timesGuessed == maxGuesses)
             {
                 break;
             }
+            timesGuessed++;
+            userGuess = Console.ReadLine();
+            correctGuess = secretNumber == Int32.Parse(userGuess);
         }
     }
 }
