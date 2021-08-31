@@ -9,12 +9,26 @@ void Main()
     // TODO: add check for user guess
     int secretNumber = 42;
     bool correctGuess = secretNumber == Int32.Parse(userGuess);
-    if (correctGuess)
+    int timesGuessed = 1;
+    int maxGuesses = 4;
+    bool keepRunning = true;
+    while (keepRunning)
     {
-        Console.WriteLine("You guessed Correctly");
-    }
-    else
-    {
-        Console.WriteLine("WRONG");
+        if (correctGuess)
+        {
+            Console.WriteLine("You guessed Correctly");
+            keepRunning = false;
+        }
+        else
+        {
+            Console.WriteLine("WRONG");
+            timesGuessed++;
+            Console.WriteLine("Guess again: ");
+            userGuess = Console.ReadLine();
+            if (timesGuessed == maxGuesses)
+            {
+                break;
+            }
+        }
     }
 }
